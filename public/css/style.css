@@ -7,16 +7,16 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    }
+}
 
 main {
     flex: 1;
     padding: 2rem 0;
     width: 100%;
     max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-    }
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
 
 .card {
     border: none;
@@ -26,8 +26,12 @@ main {
     overflow: hidden;
     height: 100%;
     width: 100%;
-        margin-bottom: 1.5rem;
-    }
+    margin-bottom: 1.5rem;
+}
+
+div.col-md-6>.card {
+    max-height: fit-content;
+}
 
 .container {
     width: 100%;
