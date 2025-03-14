@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+
+<div class="container">
+	<div class="card mb-4 fade-in">
+		<div class="card-body">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">
+						<%= tree.treename %>
+					</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+
+	<div class="row mt-4">
+		<div class="col-md-6 fade-in mb-4">
+			<img
+				src="<%= tree.image %>"
+				class="img-fluid rounded tree-detail-img"
+				alt="<%= tree.treename %>"
+				onerror="this.src='/images/default-tree.jpg'" />
+		</div>
+		<div class="col-md-6 fade-in" style="animation-delay: 0.2s">
+			<h2><%= tree.treename %></h2>
+			<p class="text-muted">
+				<i class="far fa-calendar-alt me-2"></i>Added on <%=
+				tree.createdAt.toDateString() %>
+			</p>
+			<hr />
+			<div class="card mb-4">
+				<div class="card-body">
+					<h3><i class="fas fa-info-circle me-2"></i>Description</h3>
+					<p><%= tree.description %></p>
+				</div>
+			</div>
+
+			<div class="card mb-4">
+				<div class="card-body">
+					<h3><i class="fas fa-leaf me-2"></i>Care Instructions</h3>
+					<ul>
+						<li>
+							<strong>Water:</strong> Regular watering, allowing soil to dry
+							between waterings
+						</li>
+						<li>
+							<strong>Light:</strong> Depends on species, typically partial to
+							full sun
+						</li>
+						<li>
+							<strong>Soil:</strong> Well-draining soil with organic matter
+						</li>
+						<li>
+							<strong>Fertilizer:</strong> Balanced fertilizer during growing
+							season
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+				<a href="/" class="btn btn-primary"
+					><i class="fas fa-arrow-left me-1"></i>Back to TreeShop</a
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include('partials/footer') %>

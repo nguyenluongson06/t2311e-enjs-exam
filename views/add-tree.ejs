@@ -1,0 +1,78 @@
+<%- include('partials/header') %>
+
+<div class="container">
+	<div class="row justify-content-center fade-in">
+		<div class="col-md-8">
+			<div class="card mb-4">
+				<div class="card-body">
+					<h2 class="text-center mb-4">
+						<i class="fas fa-plus-circle me-2"></i>Add New Tree
+					</h2>
+
+					<% if (errors.length > 0) { %>
+					<div class="alert alert-danger">
+						<ul class="mb-0">
+							<% errors.forEach(error => { %>
+							<li><%= error.msg %></li>
+							<% }) %>
+						</ul>
+					</div>
+					<% } %>
+
+					<form action="/add" method="POST" class="mt-4">
+						<div class="mb-3">
+							<label for="treename" class="form-label"
+								><i class="fas fa-tag me-1"></i>Tree Name*</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="treename"
+								name="treename"
+								value="<%= tree.treename %>"
+								required />
+						</div>
+
+						<div class="mb-3">
+							<label for="description" class="form-label"
+								><i class="fas fa-align-left me-1"></i>Description*</label
+							>
+							<textarea
+								class="form-control"
+								id="description"
+								name="description"
+								rows="4"
+								required>
+<%= tree.description %></textarea
+							>
+						</div>
+
+						<div class="mb-3">
+							<label for="image" class="form-label"
+								><i class="fas fa-image me-1"></i>Image URL</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="image"
+								name="image"
+								value="<%= tree.image %>" />
+							<small class="text-muted">Leave blank to use default image</small>
+						</div>
+
+						<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+							<a href="/" class="btn btn-secondary me-md-2"
+								><i class="fas fa-times me-1"></i>Cancel</a
+							>
+							<button type="submit" class="btn btn-success">
+								<i class="fas fa-check me-1"></i>Add Tree
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include('partials/footer') %>
