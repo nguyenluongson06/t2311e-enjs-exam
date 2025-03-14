@@ -3,7 +3,6 @@ const router = express.Router();
 const Tree = require('../models/tree');
 const { check, validationResult } = require('express-validator');
 
-// Home page - TreeShop
 router.get('/', async (req, res) => {
 	try {
 		const trees = await Tree.find().sort({ createdAt: -1 });
@@ -17,12 +16,10 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// About page
 router.get('/about', (req, res) => {
-	res.render('about', { title: 'About Me' });
+	res.render('about', { title: 'About Us' });
 });
 
-// Add tree form
 router.get('/add', (req, res) => {
 	res.render('add-tree', {
 		title: 'Add New Tree',
@@ -31,7 +28,6 @@ router.get('/add', (req, res) => {
 	});
 });
 
-// Add tree - POST
 router.post(
 	'/add',
 	[
@@ -39,7 +35,6 @@ router.post(
 		check('description', 'Description is required').notEmpty(),
 	],
 	async (req, res) => {
-		// Validate inputs
 		const errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
@@ -66,7 +61,6 @@ router.post(
 	},
 );
 
-// Reset - Delete all trees
 router.get('/reset', async (req, res) => {
 	try {
 		await Tree.deleteMany({});
